@@ -1,0 +1,71 @@
+body {
+    background-color: rgb(31, 36, 48);
+    font-size: 20px; /* Textgröße erhöht */
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    margin: auto;
+    text-align: center;
+}
+
+header {
+    text-align: center;
+    background-color: rgb(125, 124, 119);
+    height: 60px;
+    color: white;
+    font-size: 40px;
+}
+
+div{
+    color: white;
+}
+
+button {
+    background-color: rgb(32, 32, 32);
+    color: white;
+    padding: 24px 40px; /* Padding erhöht */
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 20px; /* Textgröße erhöht */
+    margin: 30px 10px; /* Abstand oben und unten, sowie seitlich erhöht */
+    cursor: pointer;
+    border-radius: 11px;
+    border: none;
+    width: 80%; /* Breite auf 80% des Bildschirms festlegen */
+    max-width: 320px/* Maximale Breite erhöht */
+}
+
+button:hover {
+    background-color: rgb(47, 46, 45);
+    color: rgb(1, 1, 1);
+}
+
+input {
+    background-color: rgb(30, 30, 29);
+    padding: 16px 26px; /* Padding erhöht */
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    font-size: 18px; /* Textgröße erhöht */
+    margin: 20px 10px; /* Abstand oben und unten, sowie seitlich */
+    cursor: text;
+    border-radius: 9px;
+    border: none;
+    width: calc(50% - 20px); /* Breite auf 50% der Bildschirmbreite festlegen */
+    max-width: 220px; /* Maximale Breite erhöht */
+}
+
+/* Media Query für Handys */
+@media only screen and (max-width: 600px) {
+    button {
+        padding: 14px 28px; /* Padding für Mobilgeräte angepasst */
+        font-size: 18px; /* Textgröße für Mobilgeräte angepasst */
+        margin: 15px 10px; /* Abstand für Mobilgeräte angepasst */
+    }
+
+    input {
+        padding: 14px 22px; /* Padding für Mobilgeräte angepasst */
+        font-size: 16px; /* Textgröße für Mobilgeräte angepasst */
+        margin: 10px auto; /* Abstand für Mobilgeräte angepasst, seitlich zentriert */
+        width: 50%; /* Abstand für Mobilgeräte angepasst */
+    }
+}

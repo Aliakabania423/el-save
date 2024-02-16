@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-mail Saver</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="manifest" href="manifest.json">
+    <style>
+        body {
+            background-color: rgb(31 36 48);
+            color: white;
+            font-size: 38px;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            margin: auto;
+            text-align: center;
+        }
+
+        /* Media Query für Handys */
+        @media only screen and (max-width: 600px) {
+            input {
+                margin: 5px auto; /* Alle Buttons und Inputs zentriert halten */
+                margin-top: 90px; /* Verkleinern des oberen Abstands für besseres Aussehen auf Handys */
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        Secure Email
+    </header>
+         
+    <div>
+        <input id="NameEmail" placeholder="Email Name ..." type="text">
+    </div>
+
+    <div>
+        <input id="EmailInput" placeholder="Email ..." type="text">
+        <div>
+            <button onclick="SaveEmail()" type="button" class="btn btn-warning">Save</button>
+        </div>
+    </div> 
+
+    <div id="displayEmail"></div>
+
+    
+
+    <div>
+        <a href="SavedEmails.html">
+            <button>Saved Emails</button>
+        </a>
+    </div>
+
+    <script>function SaveEmail() {
+        var name = document.getElementById("NameEmail").value;
+        var email = document.getElementById("EmailInput").value;
+    
+        if (name && email) {
+            var savedEmails = JSON.parse(localStorage.getItem("SavedEmails")) || [];
+            savedEmails.push({name: name, email: email});
+            localStorage.setItem("SavedEmails", JSON.stringify(savedEmails));
+    
+            alert('Email saved successfully.');
+    
+            displaySavedEmails();
+        } else {
+            alert('Please enter both name and email.');
+        }
+    }
+    </script>
+    
+</body>
+</html>

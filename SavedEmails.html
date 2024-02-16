@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Saved Emails</title>
+   <link rel="stylesheet" href="styles.css">
+   <link rel="manifest" href="manifest.json">
+</head>
+<body>
+
+    <header>Saved Emails</header>
+    <div id="displayEmail"></div>
+
+
+    <a href="index.html">
+        <button>Back</button>
+    </a>
+
+    <button class="delete-btn" onclick="deleteEmail()">Delete</button>
+
+<script >
+   window.onload = function() {
+    displaySavedEmails();
+};
+
+function displaySavedEmails() {
+    var savedEmails = JSON.parse(localStorage.getItem("SavedEmails")) || [];
+    var display = '';
+
+    if (savedEmails.length > 0) {
+        display += '<h2>Saved Emails:</h2>';
+        savedEmails.forEach(function(emailObj) {
+            display += '<p>Name: ' + emailObj.name + ', Email: ' + emailObj.email + '</p>';
+        });
+    } else {
+        display = '<p>No saved emails found.</p>';
+    }
+
+    document.getElementById("displayEmail").innerHTML = display;
+}
+function deleteEmail(index) {
+    var savedEmails = JSON.parse(localStorage.getItem("SavedEmails")) || [];
+    savedEmails.splice(index, 1); // Entfernt den Eintrag aus dem Array
+    localStorage.setItem("SavedEmails", JSON.stringify(savedEmails));
+    displaySavedEmails();
+ } // Aktualisiert die Anzeige
+
+    </script>
+</body>
+</html>
